@@ -1,6 +1,10 @@
+window.addEventListener("resize", () => {
+  console.log(window.innerWidth);
+});
+
 function windowScroll(section, offsetTop) {
   const yPos = section.offsetTop;
-  console.log(yPos, offsetTop);
+  // console.log(yPos, offsetTop);
   window.scroll({
     top: yPos + offsetTop,
     left: 0,
@@ -27,11 +31,13 @@ function menuBarOpen() {
 }
 const offsetTop = -150;
 const navBtns = document.getElementsByClassName("nav-btn");
-const donateBtn = document.getElementsByClassName("special-btn")[1];
+const donateBtn = document.getElementsByClassName("special-btn")[0];
 const sections = document.getElementsByClassName("section");
 const donateSection = document.querySelector(".donate-card");
-const logo = document.querySelector(".logo-container");
 const dropDownMenu = document.querySelector(".drop-down-menu-bg");
+const dropDownMenuBtns = document.querySelector(".drop-down-menu");
+const joinBtnDropDowmMenu = dropDownMenuBtns.lastElementChild;
+const joinBtnNavBar = navBtns[4];
 const body = document.getElementsByTagName("body")[0];
 
 const navBtnsObj = {
@@ -52,7 +58,7 @@ const sectionsObj = {
 
 function windowScroll(section, offsetTop) {
   const yPos = section.offsetTop;
-  console.log(yPos, offsetTop);
+  // console.log(yPos, offsetTop);
   window.scroll({
     top: yPos + offsetTop,
     left: 0,
@@ -80,7 +86,8 @@ navBtnsObj["donate"].addEventListener("click", () => {
   windowScroll(sectionsObj["donate"], offsetTop);
 });
 
-logo.addEventListener("click", () => {
+document.querySelector(".logo-container").addEventListener("click", () => {
+  console.log("logo clicked");
   scrollToHome();
 });
 
@@ -91,8 +98,6 @@ document.querySelector(".menu-btn").addEventListener("click", () => {
 document.querySelector(".x-icon").addEventListener("click", () => {
   menuBarClose();
 });
-
-const dropDownMenuBtns = document.querySelector(".drop-down-menu");
 
 // console.log(dropDownMenuBtns, dropDownMenuBtns.children);
 
@@ -130,6 +135,14 @@ dropDownMenuBtnsObj["home"].addEventListener("click", () => {
   menuBarClose();
 });
 
-document.querySelector(".volunteer-btn").addEventListener("click", () => {
+joinBtnDropDowmMenu.addEventListener("click", () => {
   window.open("https://forms.gle/eRgzeDvjGuRAatRu9");
+});
+
+joinBtnNavBar.addEventListener("click", () => {
+  window.open("https://forms.gle/eRgzeDvjGuRAatRu9");
+});
+
+document.querySelector("#watch-more").addEventListener("click", () => {
+  window.open("https://www.facebook.com/MesoPakistan/videos");
 });
