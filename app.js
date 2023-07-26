@@ -12,6 +12,22 @@ function windowScroll(section, offsetTop) {
   });
 }
 
+async function apiCall(URL) {
+  const res = await fetch(URL, {
+    method: "PUT",
+  });
+  const resJson = await res.json();
+
+  if (resJson.$metadata.httpStatusCode == 200) {
+    alert("Thank You For Subscribing to our newsletter!");
+  } else if (resJson.$metadata.httpStatusCode != 200) {
+    console.log(res.$metadata);
+    alert("Our system is down, please try again after few minutes!");
+  }
+
+  return resJson;
+}
+
 function scrollToHome() {
   window.scroll({
     top: 0,
@@ -145,4 +161,21 @@ joinBtnNavBar.addEventListener("click", () => {
 
 document.querySelector("#watch-more").addEventListener("click", () => {
   window.open("https://www.facebook.com/MesoPakistan/videos");
+});
+
+document.getElementById("sub-button").addEventListener("click", () => {
+  const name = document.getElementById("name-input").value;
+  const email = document.getElementById("email-input").value;
+
+  if (name === "" && email === "") {
+    alert("Please enter your name and email to subscribe!");
+  } else if (name != "" && email === "") {
+    alert("Please enter your email to subscribe!");
+  } else if (name === "" && email != "") {
+    alert("Please enter your name to subscribe!");
+  } else {
+    apiCall(
+      `https://olenarm5i6.execute-api.ap-southeast-1.amazonaws.com/UAT?email=${email}&name=${name}`
+    );
+  }
 });
