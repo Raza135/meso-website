@@ -164,18 +164,20 @@ document.querySelector("#watch-more").addEventListener("click", () => {
 });
 
 document.getElementById("sub-button").addEventListener("click", () => {
-  const name = document.getElementById("name-input").value;
-  const email = document.getElementById("email-input").value;
+  const name = document.getElementById("name-input");
+  const email = document.getElementById("email-input");
 
-  if (name === "" && email === "") {
+  if (name.value === "" && email.value === "") {
     alert("Please enter your name and email to subscribe!");
-  } else if (name != "" && email === "") {
+  } else if (name.value != "" && email.value === "") {
     alert("Please enter your email to subscribe!");
-  } else if (name === "" && email != "") {
+  } else if (name.value === "" && email.value != "") {
     alert("Please enter your name to subscribe!");
   } else {
     apiCall(
-      `https://olenarm5i6.execute-api.ap-southeast-1.amazonaws.com/UAT?email=${email}&name=${name}`
+      `https://olenarm5i6.execute-api.ap-southeast-1.amazonaws.com/UAT?email=${email.value}&name=${name.value}`
     );
+    name.value = "";
+    email.value = "";
   }
 });
