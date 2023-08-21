@@ -243,7 +243,7 @@ button {
 
 .media-grids {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 300px 300px 300px 300px;
 }
 
 .fb-video {
@@ -583,7 +583,7 @@ button {
     grid-template-columns: 350px;
   }
   .media-grids {
-    grid-template-columns: auto;
+    grid-template-columns: 300px;
   }
   .section-about {
     flex-direction: column;
@@ -650,7 +650,7 @@ button {
   }
 
   .media-grids {
-    grid-template-columns: auto auto;
+    grid-template-columns: 300px 300px;
   }
 }
 
@@ -661,7 +661,7 @@ button {
   }
 
   .media-grids {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 300px 300px 300px;
   }
 }
 
