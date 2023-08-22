@@ -1,5 +1,5 @@
 window.addEventListener("resize", () => {
-  console.log(window.innerWidth);
+  // console.log(window.innerWidth);
 });
 
 function windowScroll(section, offsetTop) {
@@ -21,7 +21,7 @@ async function apiCall(URL) {
   if (resJson.$metadata.httpStatusCode == 200) {
     alert("Thank You For Subscribing to our newsletter!");
   } else if (resJson.$metadata.httpStatusCode != 200) {
-    console.log(res.$metadata);
+    // console.log(res.$metadata);
     alert("Our system is down, please try again after few minutes!");
   }
 
@@ -103,7 +103,7 @@ navBtnsObj["donate"].addEventListener("click", () => {
 });
 
 document.querySelector(".logo-container").addEventListener("click", () => {
-  console.log("logo clicked");
+  // console.log("logo clicked");
   scrollToHome();
 });
 
